@@ -11,7 +11,7 @@ struct StudentInfo
 
 void sorting(vector<StudentInfo> vector)
 {
-
+	//test
 }
 
 int main()
