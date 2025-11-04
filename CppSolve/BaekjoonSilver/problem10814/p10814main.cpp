@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,9 +10,18 @@ struct StudentInfo
 	string name;
 };
 
-void sorting(vector<StudentInfo> vector)
+void sorting(vector<StudentInfo> v)
 {
-	//test
+	stable_sort(v.begin(), v.end(),
+		[](const StudentInfo& a, const StudentInfo& b)
+		{
+			return a.age < b.age;
+		}
+	);
+	for (int i = 0; i < v.size();i++)
+	{
+		cout << v[i].age << " " << v[i].name << "\n";
+	}
 }
 
 int main()
@@ -29,4 +39,7 @@ int main()
 		input_info.name = input_name;
 		info_vector.push_back(input_info);
 	}
+	sorting(info_vector);
+
+	return 0;
 }
